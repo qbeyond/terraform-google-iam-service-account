@@ -1,10 +1,10 @@
 # Google Service Account Module
 
-This Module is created from the Google Cloud Platform modules folder and holds its git history to be updatable. To Update this module you need to filter the cloud-foundation-fabric repository with the [git-filter-repo](https://github.com/newren/git-filter-repo) plugin and use the existing [filter parameters](./git-repo-filter-module-iam-service-account.txt).
-
 This module allows simplified creation and management of one a service account and its IAM bindings. A key can optionally be generated and will be stored in Terraform state. To use it create a sensitive output in your root modules referencing the `key` output, then extract the private key from the JSON formatted outputs. Alternatively, the `key` can be generated with `openssl` library and only public part uploaded to the Service Account, for more refer to the [Onprem SA Key Management](../../blueprints/cloud-operations/onprem-sa-key-management/) example.
 
 Note that this module does not fully comply with our design principles, as outputs have no dependencies on IAM bindings to prevent resource cycles.
+
+Original Module from [Cloud-Foundation-Fabric](https://github.com/GoogleCloudPlatform/cloud-foundation-fabric)
 
 ## Example
 
@@ -74,3 +74,7 @@ module "myproject-default-service-accounts" {
 | [service_account_credentials](outputs.tf#L57) | Service account json credential templates for uploaded public keys data. |           |
 
 <!-- END TFDOC -->
+
+## Contribute
+
+This Module is created from the Google Cloud Platform modules folder and holds its git history to be updatable. To Update this module you need to filter the cloud-foundation-fabric repository with the [git-filter-repo](https://github.com/newren/git-filter-repo) plugin and use the existing [filter parameters](./git-repo-filter-module-iam-service-account.txt).
