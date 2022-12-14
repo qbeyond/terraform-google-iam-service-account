@@ -108,3 +108,9 @@ variable "service_account_create" {
   type        = bool
   default     = true
 }
+
+variable "group_memberships" {
+  description = "Group IDs this service account should be a member of"
+  type        = list(string)
+  default     = []
+}

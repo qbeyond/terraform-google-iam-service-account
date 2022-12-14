@@ -127,3 +127,16 @@ resource "google_storage_bucket_iam_member" "bucket-roles" {
   role   = each.value.role
   member = local.resource_iam_email
 }
+resource "google_cloud_identity_group_membership" "group-memberships" {
+  for_each = toset(var.group_memberships)
+
+  group = each.value
+
+  preferred_member_key {
+    id = google_service_account.service_account[0].email
+  }
+
+  roles {
+    name = "MEMBER"
+  }
+}
